@@ -11,27 +11,32 @@ namespace Choose_Your_Own_Adventure
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Choose Your Own Adventure!");
-            try
+            while (true)
             {
-                Console.WriteLine("Do you want to play a game? [yes | no]");
-                string UserInput = Console.ReadLine();
-                string Play = UserInput.ToLower();
-                if (Play == "yes")
+                try
                 {
-                    Game.Adventure();
+                    Console.WriteLine("Do you want to play a game? [yes | no]");
+                    string UserInput = Console.ReadLine();
+                    string Play = UserInput.ToLower();
+                
+                    if (Play == "yes")
+                    {
+                        Game.Adventure();
+                        break;
+                    }
+                    else if (Play == "no")
+                    {
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
-                else if (Play == "no")
+                catch
                 {
-                    Environment.Exit(0);
+                    Console.WriteLine("Please enter a valid answer!");
                 }
-                else
-                {
-                    throw new Exception();
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Please enter a valid awnser!");
             }
         }
     }
