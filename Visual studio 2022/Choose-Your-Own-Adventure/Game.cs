@@ -52,7 +52,7 @@ namespace Choose_Your_Own_Adventure
             Typing();
             Text = "2. Go back to the classroom and wait for the morning";
             Typing();
-            Text = "Choose your path!";
+            Text = "[Choose your path!]";
             Typing();
 
             while (true)
