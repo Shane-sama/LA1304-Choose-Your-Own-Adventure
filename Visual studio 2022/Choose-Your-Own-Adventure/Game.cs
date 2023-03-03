@@ -36,6 +36,7 @@ namespace Choose_Your_Own_Adventure
             else
             {
                 Console.WriteLine("");
+                Console.WriteLine("");
             }
         }
         public static void Adventure()
@@ -45,11 +46,41 @@ namespace Choose_Your_Own_Adventure
                 "It's dark outside, so you decide that you want to go home. You stand up " +
                 "and walk down the stairs to the entrance. The door is locked.";
             Typing();
+
             Enter = false;
             Text = "1. Look for another way out";
             Typing();
             Text = "2. Go back to the classroom and wait for the morning";
             Typing();
+            Text = "Choose your path!";
+            Typing();
+
+            while (true)
+            {
+                try
+                {
+                    string Choice = Console.ReadLine();
+
+                    if (Choice == "1")
+                    {
+                        Path_1.Path_1.Search();
+                        break;
+                    }
+                    else if (Choice == "2")
+                    {
+                        Path_2.Path_2.Wait();
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid answer!");
+                }
+            }
         }
     }
 }
