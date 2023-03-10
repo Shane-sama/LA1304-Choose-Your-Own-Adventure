@@ -1,8 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Authentication;
 using MongoDBAdventureApp;
@@ -57,15 +60,31 @@ namespace Choose_Your_Own_Adventure
             var collection = db.GetCollection<PersonModel>(collectionName);
 
             //Input in Database
-            /*var Person = new PersonModel { Username = "Tylosaurus-rex", Password = "siu", Level = "420" };
-            await collection.InsertOneAsync(Person);
+            
+            /*var Person = new PersonModel { Username = "Test", Password = "Test", Level = "1" };
+            await collection.InsertOneAsync(Person);*/
 
-            //Search in Database
-            var results = await collection.FindAsync(_ => true);
+            //Output all
+            /*var results = await collection.FindAsync(_ => true);
             foreach(var result in results.ToList())
             {
                 Console.WriteLine($"{result.Id}: {result.Username} {result.Password} {result.Level}");
             }*/
+
+            //Update Database
+            /*var filter = Builders<PersonModel>.Filter.Eq("Username", "Nathan");
+            var update = Builders<PersonModel>.Update
+                .Set("Level", "8");
+            collection.UpdateOne(filter, update);*/
+
+            //Filter
+            var filter = Builders<PersonModel>.Filter.Eq("Username", "Shane");
+            var filterresults = collection.Find(filter).ToList();
+            foreach(var result in filterresults.ToList())
+            {
+                Console.WriteLine($"{result.Id} {result.Username} {result.Password} {result.Level}");
+            }
+            
         }
     }
 }
