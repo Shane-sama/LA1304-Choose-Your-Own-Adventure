@@ -48,9 +48,9 @@ namespace Choose_Your_Own_Adventure
             Typing();
 
             Enter = false;
-            Text = "1. Look for another way out";
+            Text = "1. Look for another way out.";
             Typing();
-            Text = "2. Go back to the classroom and wait for the morning";
+            Text = "2. Go back to the classroom and try to wait for the morning.";
             Typing();
             Text = "[Choose your path!]";
             Typing();

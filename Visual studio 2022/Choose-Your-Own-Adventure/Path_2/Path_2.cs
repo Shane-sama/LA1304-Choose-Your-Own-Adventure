@@ -10,7 +10,9 @@ namespace Choose_Your_Own_Adventure.Path_2
     {
         public static void Wait()
         {
-            Console.WriteLine("Test");
+            Game.Text = "You go back to the classroom and try to fall asleep using your jacket "
+                + "as a pillow.";
+            Game.Typing();
         }
     }
 }
