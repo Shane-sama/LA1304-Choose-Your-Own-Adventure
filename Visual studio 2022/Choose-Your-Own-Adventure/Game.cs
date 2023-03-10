@@ -39,10 +39,11 @@ namespace Choose_Your_Own_Adventure
                 Console.WriteLine("");
             }
         }
+
         public static void Adventure()
         {
-            Text = "You wake up. You only remember having School not to long ago."
-                + "You must have fallen asleep. Nobody's in the calssroom anymore." +
+            Text = "You wake up. You only remember having school not to long ago. "
+                + "You must have fallen asleep. Nobody's in the calssroom anymore. " +
                 "It's dark outside, so you decide that you want to go home. You stand up " +
                 "and walk down the stairs to the entrance. The door is locked.";
             Typing();

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -60,6 +60,7 @@ namespace Choose_Your_Own_Adventure
             var collection = db.GetCollection<PersonModel>(collectionName);
 
             //Input in Database
+            
             /*var Person = new PersonModel { Username = "Test", Password = "Test", Level = "1" };
             await collection.InsertOneAsync(Person);*/
 
