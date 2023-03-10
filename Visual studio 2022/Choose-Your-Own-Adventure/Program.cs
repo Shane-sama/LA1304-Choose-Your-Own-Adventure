@@ -77,12 +77,12 @@ namespace Choose_Your_Own_Adventure
             collection.UpdateOne(filter, update);*/
 
             //Filter
-            var filter = Builders<PersonModel>.Filter.Eq("Username", "Shane");
+            /*var filter = Builders<PersonModel>.Filter.Eq("Username", "Shane");
             var filterresults = collection.Find(filter).ToList();
             foreach(var result in filterresults.ToList())
             {
                 Console.WriteLine($"{result.Id} {result.Username} {result.Password} {result.Level}");
-            }
+            }*/
             
         }
     }
