@@ -63,7 +63,7 @@ namespace Choose_Your_Own_Adventure
             /*var Person = new PersonModel { Username = "Test", Password = "Test", Level = "1" };
             await collection.InsertOneAsync(Person);*/
 
-            //Search in Database
+            //Output all
             /*var results = await collection.FindAsync(_ => true);
             foreach(var result in results.ToList())
             {
@@ -74,8 +74,15 @@ namespace Choose_Your_Own_Adventure
             /*var filter = Builders<PersonModel>.Filter.Eq("Username", "Nathan");
             var update = Builders<PersonModel>.Update
                 .Set("Level", "8");
-
             collection.UpdateOne(filter, update);*/
+
+            //Filter
+            var filter = Builders<PersonModel>.Filter.Eq("Username", "Shane");
+            var filterresults = collection.Find(filter).ToList();
+            foreach(var result in filterresults.ToList())
+            {
+                Console.WriteLine($"{result.Id} {result.Username} {result.Password} {result.Level}");
+            }
             
         }
     }
