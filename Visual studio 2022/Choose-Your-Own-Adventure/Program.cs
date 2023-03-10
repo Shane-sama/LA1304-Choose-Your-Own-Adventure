@@ -57,7 +57,7 @@ namespace Choose_Your_Own_Adventure
             var collection = db.GetCollection<PersonModel>(collectionName);
 
             //Input in Database
-            /*var Person = new PersonModel { Username = "Tim", Password = "Lol", Level = "2" };
+            /*var Person = new PersonModel { Username = "Tylosaurus-rex", Password = "siu", Level = "420" };
             await collection.InsertOneAsync(Person);
 
             //Search in Database
