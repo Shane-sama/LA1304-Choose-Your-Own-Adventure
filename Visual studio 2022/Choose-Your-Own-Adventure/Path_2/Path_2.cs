@@ -20,7 +20,7 @@ namespace Choose_Your_Own_Adventure.Path_2
                 + "You realise there's no internet connection. Seems like the school turns it "
                 + "off during the night. The lights in the room also don't work. They must be "
                 + "turning off the electricity for the whole place. That seems like way too much "
-                + "effort you think to yourself. You stand up and go outside the room.";
+                + "effort you think to yourself. You stand up and go outside the room. ";
             Typing();
             Game.Text = "HOLY MOTHER OF GOD! There's someone else in the building. You just "
                 + "saw them walking around the corner. You try to follow them, but when you turn "
