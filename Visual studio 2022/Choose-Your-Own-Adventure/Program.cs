@@ -18,10 +18,8 @@ namespace Choose_Your_Own_Adventure
     {
         static void Main()
         {
-            //Start();
-            //Path_0();
-
-            ConnectionCheck();
+            Start();
+            Path_0();
         }
 
 
