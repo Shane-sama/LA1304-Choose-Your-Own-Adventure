@@ -100,27 +100,39 @@ namespace Choose_Your_Own_Adventure
 
         static void ConnectionCheck()
         {
-            Console.WriteLine("connecting to database...");
-            string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
-            string databaseName = "AdventureGame";
-            string collectionName = "User";
-
-            var client = new MongoClient(connctionString);
-            var db = client.GetDatabase(databaseName);
-            var collection = db.GetCollection<PersonModel>(collectionName);
-
-
-
-
-            var filter = Builders<PersonModel>.Filter.Eq("Username", "ConnectionCheck");
-            var filterresults = collection.Find(filter).ToList();
-            foreach (var result in filterresults.ToList())
+            while (true)
             {
-                Console.WriteLine($"{result.Username} {result.Level}");
-                Console.WriteLine("Connected");
-            }
+                try
+                {
+                    Console.WriteLine("connecting to database...");
+                    string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
+                    string databaseName = "AdventureGame";
+                    string collectionName = "User";
 
-            Console.Clear();
+                    var client = new MongoClient(connctionString);
+                    var db = client.GetDatabase(databaseName);
+                    var collection = db.GetCollection<PersonModel>(collectionName);
+
+
+
+
+                    var filter = Builders<PersonModel>.Filter.Eq("Username", "ConnectionCheck");
+                    var filterresults = collection.Find(filter).ToList();
+                    foreach (var result in filterresults.ToList())
+                    {
+                        Console.WriteLine($"{result.Username} {result.Level}");
+                        Console.WriteLine("Connected");
+                    }
+
+                    Console.Clear();
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("connection refused");
+                    Console.WriteLine("trying again");
+                }
+            }
         }
 
         static void Login()
@@ -220,6 +232,9 @@ namespace Choose_Your_Own_Adventure
                             {
                                 case 100:
                                     Path_1.Path_1.Search();
+                                    break;
+                                case 101:
+                                    Path_1.Path_1_1.Sporthalls();
                                     break;
                                 default:
                                     Path_0();
