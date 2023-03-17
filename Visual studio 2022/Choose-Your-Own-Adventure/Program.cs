@@ -16,6 +16,7 @@ namespace Choose_Your_Own_Adventure
 {
     class Program
     {
+        public static string Username = "";
         static void Main()
         {
             Start();
@@ -163,7 +164,6 @@ namespace Choose_Your_Own_Adventure
 
                     if (Play == "yes")
                     {
-
                         break;
                     }
                     else if (Play == "no")
@@ -214,14 +214,45 @@ namespace Choose_Your_Own_Adventure
                     var collection = db.GetCollection<PersonModel>(collectionName);
 
 
-
+                    int Login = 0;
 
                     var filter = Builders<PersonModel>.Filter.Eq("Username", NewUsername);
                     var filterresults = collection.Find(filter).ToList();
                     foreach (var result in filterresults.ToList())
                     {
-                        Console.WriteLine($"{result.Username} {result.Level}");
-                        Console.WriteLine("Connected");
+                        Login = filterresults.Count;
+                    }
+
+                    
+                    
+                    
+                    string NewPassword;
+
+                    if(Login >= 1)
+                    {
+                        Console.WriteLine("The Username " + NewUsername + " is already taken");
+                    }
+                    else
+                    {
+                        while (true)
+                        {
+                            try
+                            {
+                                Console.WriteLine("Choose your Password.");
+                                NewPassword = Console.ReadLine();
+                                Console.Clear();
+                                break;
+                            }
+                            catch
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Please enter a valid answer!");
+                            }
+                        }
+                        var Person = new PersonModel { Username = NewUsername, Password = NewPassword, Level = "1" };
+                        collection.InsertOneAsync(Person);
+                        Username = NewUsername;
+                        Path_0();
                     }
 
 
@@ -231,6 +262,23 @@ namespace Choose_Your_Own_Adventure
                     Console.Clear();
                 }
             }
+        }
+
+        public static void SpeichernUndBeenden(int Level)
+        {
+            string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "AdventureGame";
+            string collectionName = "User";
+
+            var client = new MongoClient(connctionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<PersonModel>(collectionName);
+
+
+            var filter = Builders<PersonModel>.Filter.Eq("Username", Username);
+            var update = Builders<PersonModel>.Update
+                .Set("Level", Level);
+            collection.UpdateOne(filter, update);
         }
     }
 }
