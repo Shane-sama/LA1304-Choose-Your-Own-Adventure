@@ -150,6 +150,8 @@ namespace Choose_Your_Own_Adventure
                     Console.WriteLine("Please enter a valid answer!");
                 }
             }
+
+            
         }
 
         static void Register()
