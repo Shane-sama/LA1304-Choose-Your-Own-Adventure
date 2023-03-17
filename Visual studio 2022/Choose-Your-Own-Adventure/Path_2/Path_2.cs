@@ -49,17 +49,17 @@ namespace Choose_Your_Own_Adventure.Path_2
 
                     if (Choice == "1")
                     {
-                        
+                        Path_2_1.Run();
                         break;
                     }
                     else if (Choice == "2")
                     {
-                        
+                        Path_2_2.Check();
                         break;
                     }
                     else if (Choice == "3")
                     {
-                        Program.SpeichernUndBeenden(2);
+                        Program.SpeichernUndBeenden(200);
                         break;
                     }
                     else
