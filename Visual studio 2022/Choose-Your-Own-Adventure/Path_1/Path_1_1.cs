@@ -17,7 +17,7 @@ namespace Choose_Your_Own_Adventure.Path_1
                       + "Right before the stairs to the sporthalls you see alot of apple boxes just laying around. "
                       + "all the apple boxes have the initial C on them. You think that this is very odd so you rather ignore "
                       + "the boxes and go up the stairs. You finally reached your destination. The first thing you wanna do "
-                      + "is to look if the doors to the outside are also locked."
+                      + "is to look if the doors to the outside are also locked.";
         }
 
     }
