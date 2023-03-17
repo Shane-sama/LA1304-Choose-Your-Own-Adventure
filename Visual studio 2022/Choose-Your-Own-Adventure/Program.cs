@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Choose_Your_Own_Adventure.Path_1;
 using Microsoft.VisualBasic;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Authentication;
@@ -20,7 +21,6 @@ namespace Choose_Your_Own_Adventure
         static void Main()
         {
             Start();
-            Path_0();
         }
 
 
@@ -100,6 +100,7 @@ namespace Choose_Your_Own_Adventure
 
         static void ConnectionCheck()
         {
+            Console.WriteLine("connecting to database...");
             string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
             string databaseName = "AdventureGame";
             string collectionName = "User";
@@ -118,10 +119,13 @@ namespace Choose_Your_Own_Adventure
                 Console.WriteLine($"{result.Username} {result.Level}");
                 Console.WriteLine("Connected");
             }
+
+            Console.Clear();
         }
 
         static void Login()
         {
+            Console.Clear();
             while (true)
             {
                 try
@@ -132,11 +136,12 @@ namespace Choose_Your_Own_Adventure
 
                     if (Play == "yes")
                     {
-                        
+                        Console.Clear();
                         break;
                     }
                     else if (Play == "no")
                     {
+                        Console.Clear();
                         Register();
                         break;
                     }
@@ -147,11 +152,87 @@ namespace Choose_Your_Own_Adventure
                 }
                 catch
                 {
+                    Console.Clear();
                     Console.WriteLine("Please enter a valid answer!");
                 }
             }
 
-            
+            string LoginUsername;
+            string LoginPassword = "null";
+            int ActuelLevel = 0;
+
+            string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "AdventureGame";
+            string collectionName = "User";
+
+            var client = new MongoClient(connctionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<PersonModel>(collectionName);
+
+            while (true)
+            {
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("Whats your Username?");
+                        LoginUsername = Console.ReadLine();
+                        break;
+                    }
+                    catch
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Please enter a valid answer!");
+                    }
+                }
+
+                var filter = Builders<PersonModel>.Filter.Eq("Username", LoginUsername);
+                var filterresults = collection.Find(filter).ToList();
+                foreach (var result in filterresults.ToList())
+                {
+                    Console.WriteLine($"{result.Id} {result.Username} {result.Password} {result.Level}");
+
+                    while (true)
+                    {
+                        while (true)
+                        {
+                            try
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Whats the Password from " + LoginUsername + "?");
+                                LoginPassword = Console.ReadLine();
+                                break;
+                            }
+                            catch
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Please enter a valid answer!");
+                            }
+                        }
+
+
+                        if(LoginPassword == result.Password)
+                        {
+                            ActuelLevel = Convert.ToInt32(result.Level);
+                            Username = LoginUsername;
+
+                            switch (ActuelLevel)
+                            {
+                                case 100:
+                                    Path_1.Path_1.Search();
+                                    break;
+                                default:
+                                    Path_0();
+                                    break;
+                            }
+                        }
+
+                    }
+                }
+
+
+
+            }
         }
 
         static void Register()
@@ -166,10 +247,12 @@ namespace Choose_Your_Own_Adventure
 
                     if (Play == "yes")
                     {
+                        Console.Clear();
                         break;
                     }
                     else if (Play == "no")
                     {
+                        Console.Clear();
                         Login();
                         break;
                     }
@@ -180,6 +263,7 @@ namespace Choose_Your_Own_Adventure
                 }
                 catch
                 {
+                    Console.Clear();
                     Console.WriteLine("Please enter a valid answer!");
                 }
             }
@@ -192,6 +276,7 @@ namespace Choose_Your_Own_Adventure
                     string NewUsername = "ConnectionCheck";
                     while (true)
                     {
+                        Console.Clear();
                         Console.WriteLine("Choose a username");
                         try
                         {
@@ -232,6 +317,7 @@ namespace Choose_Your_Own_Adventure
 
                     if(Login >= 1)
                     {
+                        Console.Clear();
                         Console.WriteLine("The Username " + NewUsername + " is already taken");
                     }
                     else
@@ -240,6 +326,7 @@ namespace Choose_Your_Own_Adventure
                         {
                             try
                             {
+                                Console.Clear();
                                 Console.WriteLine("Choose your Password.");
                                 NewPassword = Console.ReadLine();
                                 Console.Clear();
@@ -281,6 +368,8 @@ namespace Choose_Your_Own_Adventure
             var update = Builders<PersonModel>.Update
                 .Set("Level", Level);
             collection.UpdateOne(filter, update);
+            Console.Clear();
+            Console.WriteLine("saved");
             Environment.Exit(0);
         }
     }
