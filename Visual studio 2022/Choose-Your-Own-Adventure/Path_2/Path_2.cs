@@ -20,16 +20,14 @@ namespace Choose_Your_Own_Adventure.Path_2
                 + "You realise there's no internet connection. Seems like the school turns it "
                 + "off during the night. The lights in the room also don't work. They must be "
                 + "turning off the electricity for the whole place. That seems like way too much "
-                + "effort you think to yourself. You stand up and go outside the room. YOU ALMOST "
-                + "JUMP BACK, there's someone else in the building. You just saw them walking "
-                + "around the corner.";
-            Enter = true;
+                + "effort you think to yourself. You stand up and go outside the room.";
             Typing();
             Game.Text = "YOU ALMOST JUMP BACK! There's someone else in the building. You just "
                 + "saw them walking around the corner. You try to follow them, but when you turn "
                 + "around the corner, there's noone."
                 + "Suddenly you hear a window breaking. The sound's coming from one of the "
                 + "classrooms. What do you do?";
+            Enter = true;
             Typing();
 
             Enter = false;
@@ -48,12 +46,12 @@ namespace Choose_Your_Own_Adventure.Path_2
 
                     if (Choice == "1")
                     {
-                        Path_1.Path_1.Search();
+                        
                         break;
                     }
                     else if (Choice == "2")
                     {
-                        Path_2.Path_2.Wait();
+                        
                         break;
                     }
                     else
