@@ -43,7 +43,7 @@ namespace Choose_Your_Own_Adventure
         public static void Adventure()
         {
             Text = "You wake up. You only remember having school not too long ago. "
-                + "You must have fallen asleep. Nobody's in the calssroom anymore. " +
+                + "You must have fallen asleep. Nobody's in the classroom anymore. " +
                 "It's dark outside, so you decide that you want to go home. You stand up " +
                 "and walk down the stairs to the entrance. Unluckily the door is locked.";
             Typing();
