@@ -18,10 +18,8 @@ namespace Choose_Your_Own_Adventure
     {
         static void Main()
         {
-            //Start();
-            //Path_0();
-
-            ConnectionCheck();
+            Start();
+            Path_0();
         }
 
 
@@ -69,8 +67,6 @@ namespace Choose_Your_Own_Adventure
             var collection = db.GetCollection<PersonModel>(collectionName);*/
 
             ConnectionCheck();
-
-
             Login();
 
 
@@ -183,6 +179,56 @@ namespace Choose_Your_Own_Adventure
                 catch
                 {
                     Console.WriteLine("Please enter a valid answer!");
+                }
+            }
+
+
+            while (true)
+            {
+                try
+                {
+                    string NewUsername = "ConnectionCheck";
+                    while (true)
+                    {
+                        Console.WriteLine("Choose a username");
+                        try
+                        {
+                            NewUsername = Console.ReadLine();
+                            Console.Clear();
+                            break;
+                        }
+                        catch
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please enter a valid answer!");
+                        }
+                    }
+
+
+                    string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
+                    string databaseName = "AdventureGame";
+                    string collectionName = "User";
+
+                    var client = new MongoClient(connctionString);
+                    var db = client.GetDatabase(databaseName);
+                    var collection = db.GetCollection<PersonModel>(collectionName);
+
+
+
+
+                    var filter = Builders<PersonModel>.Filter.Eq("Username", NewUsername);
+                    var filterresults = collection.Find(filter).ToList();
+                    foreach (var result in filterresults.ToList())
+                    {
+                        Console.WriteLine($"{result.Username} {result.Level}");
+                        Console.WriteLine("Connected");
+                    }
+
+
+                }
+                catch
+                {
+                    Console.Clear();
                 }
             }
         }
