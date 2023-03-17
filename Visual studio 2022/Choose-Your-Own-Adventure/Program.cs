@@ -16,6 +16,13 @@ namespace Choose_Your_Own_Adventure
     {
         static void Main()
         {
+            Path_0();
+        }
+
+
+
+        static void Path_0()
+        {
             Start();
             Console.WriteLine("Welcome to Choose Your Own Adventure!");
             while (true)
