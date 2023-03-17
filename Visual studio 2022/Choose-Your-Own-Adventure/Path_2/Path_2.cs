@@ -35,6 +35,8 @@ namespace Choose_Your_Own_Adventure.Path_2
             Typing();
             Game.Text = "2. Check out what happened.";
             Typing();
+            Game.Text = "3. Save and Exit";
+            Typing();
             Game.Text = "[Choose your path!]";
             Typing();
 
@@ -52,6 +54,11 @@ namespace Choose_Your_Own_Adventure.Path_2
                     else if (Choice == "2")
                     {
                         
+                        break;
+                    }
+                    else if (Choice == "3")
+                    {
+                        Program.SpeichernUndBeenden(2);
                         break;
                     }
                     else

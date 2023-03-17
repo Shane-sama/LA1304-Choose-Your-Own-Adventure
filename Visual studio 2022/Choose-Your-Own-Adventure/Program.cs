@@ -279,6 +279,7 @@ namespace Choose_Your_Own_Adventure
             var update = Builders<PersonModel>.Update
                 .Set("Level", Level);
             collection.UpdateOne(filter, update);
+            Environment.Exit(0);
         }
     }
 }
