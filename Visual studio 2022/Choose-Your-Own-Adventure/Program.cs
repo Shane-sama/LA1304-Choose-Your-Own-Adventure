@@ -186,6 +186,7 @@ namespace Choose_Your_Own_Adventure
                     }
                 }
 
+                Username = LoginUsername;
                 var filter = Builders<PersonModel>.Filter.Eq("Username", LoginUsername);
                 var filterresults = collection.Find(filter).ToList();
                 foreach (var result in filterresults.ToList())
@@ -214,7 +215,6 @@ namespace Choose_Your_Own_Adventure
                         if(LoginPassword == result.Password)
                         {
                             ActuelLevel = Convert.ToInt32(result.Level);
-                            Username = LoginUsername;
 
                             switch (ActuelLevel)
                             {
