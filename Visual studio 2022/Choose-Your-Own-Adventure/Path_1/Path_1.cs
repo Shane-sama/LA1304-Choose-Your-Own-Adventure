@@ -10,6 +10,7 @@ namespace Choose_Your_Own_Adventure.Path_1
     {
         public static void Search()
         {
+            Console.Clear();
             Console.WriteLine("Test");
         }
     }
