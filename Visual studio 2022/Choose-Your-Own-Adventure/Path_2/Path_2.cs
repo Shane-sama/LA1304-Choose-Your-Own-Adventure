@@ -22,7 +22,7 @@ namespace Choose_Your_Own_Adventure.Path_2
                 + "turning off the electricity for the whole place. That seems like way too much "
                 + "effort you think to yourself. You stand up and go outside the room.";
             Typing();
-            Game.Text = "YOU ALMOST JUMP BACK! There's someone else in the building. You just "
+            Game.Text = "HOLY MOTHER OF GOD! There's someone else in the building. You just "
                 + "saw them walking around the corner. You try to follow them, but when you turn "
                 + "around the corner, there's noone."
                 + "Suddenly you hear a window breaking. The sound's coming from one of the "
@@ -39,6 +39,7 @@ namespace Choose_Your_Own_Adventure.Path_2
             Typing();
             Game.Text = "[Choose your path!]";
             Typing();
+
 
             while (true)
             {

@@ -60,7 +60,7 @@ namespace Choose_Your_Own_Adventure.Path_1
                     }
                     else if (Choice == "4")
                     {
-                        Program.SpeichernUndBeenden(1);
+                        Program.SpeichernUndBeenden(100);
                         break;
                     }
                     else
