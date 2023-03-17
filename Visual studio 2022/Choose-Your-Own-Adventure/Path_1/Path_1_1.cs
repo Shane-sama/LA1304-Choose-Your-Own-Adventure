@@ -88,8 +88,3 @@ namespace Choose_Your_Own_Adventure.Path_1
         }
     }
 }
-        }
-
-    }
-}
- 
