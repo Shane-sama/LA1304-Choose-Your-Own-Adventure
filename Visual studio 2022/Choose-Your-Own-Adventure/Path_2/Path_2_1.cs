@@ -19,20 +19,23 @@ namespace Choose_Your_Own_Adventure.Path_2
                 + "Ouch! You ran into something big. Like a iron wall. You look up, it has "
                 + "a face. You slide back on the floor and realise that it's some sort of "
                 + "golem or something. You stand up and turn around to run again. You feel "
-                + "the ground shaking while it's trying to catch up.";
+                + "the ground shaking while it's trying to catch up. This building is connected "
+                + "to 2 other ones. There must be a way to escape.";
             Typing();
             Text = "Quick! You have to make a decision!";
             Enter = true;
             Typing();
 
             Enter = false;
-            Game.Text = "1. RUN!";
+            Text = "1. Go up the stairs again.";
             Typing();
-            Game.Text = "2. Check out what happened.";
+            Text = "2. Go to the natural sciences Building";
             Typing();
-            Game.Text = "3. Save and Exit";
+            Text = "3. Go to the Sporthalls";
             Typing();
-            Game.Text = "[Choose your path!]";
+            Text = "4. Save and Exit";
+            Typing();
+            Text = "[Choose your path!]";
             Typing();
 
 
@@ -44,17 +47,22 @@ namespace Choose_Your_Own_Adventure.Path_2
 
                     if (Choice == "1")
                     {
-                        Path_2_1.Run();
+                        Path_2_1_1
                         break;
                     }
                     else if (Choice == "2")
                     {
-                        Path_2_2.Check();
+                        Path_2_1_2
                         break;
                     }
                     else if (Choice == "3")
                     {
-                        Program.SpeichernUndBeenden(200);
+                        Path_2_1_3
+                        break;
+                    }
+                    else if (Choice == "4")
+                    {
+                        Program.SpeichernUndBeenden(201);
                         break;
                     }
                     else

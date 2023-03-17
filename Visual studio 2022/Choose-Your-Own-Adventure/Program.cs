@@ -236,6 +236,15 @@ namespace Choose_Your_Own_Adventure
                                 case 101:
                                     Path_1.Path_1_1.Sporthalls();
                                     break;
+                                case 200:
+                                    Path_2.Path_2.Wait(); 
+                                    break;
+                                case 201:
+                                    Path_2.Path_2_1.Run();
+                                    break;
+                                case 202:
+                                    Path_2.Path_2_2.Check();
+                                    break;
                                 default:
                                     Path_0();
                                     break;
