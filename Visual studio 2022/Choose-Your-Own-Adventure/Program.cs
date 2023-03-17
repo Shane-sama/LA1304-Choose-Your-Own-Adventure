@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Common;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using MongoDB.Driver;
 using MongoDB.Driver.Core.Authentication;
+using MongoDB.Driver.Core.Events;
 using MongoDBAdventureApp;
 
 namespace Choose_Your_Own_Adventure
@@ -16,8 +18,10 @@ namespace Choose_Your_Own_Adventure
     {
         static void Main()
         {
-            Start();
-            Path_0();
+            //Start();
+            //Path_0();
+
+            ConnectionCheck();
         }
 
 
@@ -56,18 +60,21 @@ namespace Choose_Your_Own_Adventure
         static async void Start()
         {
             //Database Connection
-            string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
+            /*string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
             string databaseName = "AdventureGame";
             string collectionName = "User";
 
-
-
             var client = new MongoClient(connctionString);
             var db = client.GetDatabase(databaseName);
-            var collection = db.GetCollection<PersonModel>(collectionName);
+            var collection = db.GetCollection<PersonModel>(collectionName);*/
+
+            ConnectionCheck();
+
+
+            Login();
+
 
             //Input in Database
-            
             /*var Person = new PersonModel { Username = "Test", Password = "Test", Level = "1" };
             await collection.InsertOneAsync(Person);*/
 
@@ -91,7 +98,93 @@ namespace Choose_Your_Own_Adventure
             {
                 Console.WriteLine($"{result.Id} {result.Username} {result.Password} {result.Level}");
             }*/
-            
+
+        }
+
+        static void ConnectionCheck()
+        {
+            string connctionString = "mongodb+srv://Tim:RSzzVD0wDGVTexSl@adventuregame.x9ezgst.mongodb.net/?retryWrites=true&w=majority";
+            string databaseName = "AdventureGame";
+            string collectionName = "User";
+
+            var client = new MongoClient(connctionString);
+            var db = client.GetDatabase(databaseName);
+            var collection = db.GetCollection<PersonModel>(collectionName);
+
+
+
+
+            var filter = Builders<PersonModel>.Filter.Eq("Username", "ConnectionCheck");
+            var filterresults = collection.Find(filter).ToList();
+            foreach (var result in filterresults.ToList())
+            {
+                Console.WriteLine($"{result.Username} {result.Level}");
+                Console.WriteLine("Connected");
+            }
+        }
+
+        static void Login()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Do you want to sign in? [yes | no]");
+                    string UserInput = Console.ReadLine();
+                    string Play = UserInput.ToLower();
+
+                    if (Play == "yes")
+                    {
+                        
+                        break;
+                    }
+                    else if (Play == "no")
+                    {
+                        Register();
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid answer!");
+                }
+            }
+        }
+
+        static void Register()
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Do you want to register? [yes | no]");
+                    string UserInput = Console.ReadLine();
+                    string Play = UserInput.ToLower();
+
+                    if (Play == "yes")
+                    {
+
+                        break;
+                    }
+                    else if (Play == "no")
+                    {
+                        Login();
+                        break;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Please enter a valid answer!");
+                }
+            }
         }
     }
 }
