@@ -39,7 +39,6 @@ namespace Choose_Your_Own_Adventure.Path_2
             Typing();
 
 
-<<<<<<< HEAD
             while (true)
             {
                 try
@@ -53,7 +52,7 @@ namespace Choose_Your_Own_Adventure.Path_2
                     }
                     else if (Choice == "2")
                     {
-                        Path_1.Path_1_2.Naturalsciences();
+                        Path_1.Path_1_2.NaturalSciences();
                         break;
                     }
                     else if (Choice == "3")
@@ -76,8 +75,6 @@ namespace Choose_Your_Own_Adventure.Path_2
                     Console.WriteLine("Please enter a valid answer!");
                 }
             }
-=======
->>>>>>> dd6caa1a042770ab78fbb11e48a89773c0272b19
         }
     }
 }
