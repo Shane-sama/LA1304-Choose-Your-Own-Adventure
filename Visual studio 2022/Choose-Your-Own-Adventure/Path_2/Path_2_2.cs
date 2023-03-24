@@ -12,65 +12,25 @@ namespace Choose_Your_Own_Adventure.Path_2
         public static void Check()
         {
             Console.Clear();
-            Text = "You go back to the classroom and try to fall asleep using your jacket "
-                + "as a pillow. But you can't. You aren't tired anymore and there's this weird "
-                + "feeling, as if something is watching. You take out your phone to check the "
-                + "time and to watch some videos or play some games to make the time pass by. "
-                + "You realise there's no internet connection. Seems like the school turns it "
-                + "off during the night. The lights in the room also don't work. They must be "
-                + "turning off the electricity for the whole place. That seems like way too much "
-                + "effort you think to yourself. You stand up and go outside the room. ";
+            Text = "You go into the classroom to see what happened, when you enter the door "
+                + "closes behind you. You turn around an someone's standing there. It's giant "
+                + "with long arms and a body made of iron. It begins to speak.";
+
+            Text = " I AM THE ALMIGHTY CEDRIC GOLEM AND YOU HAVE INFILTRATED MY HOME, THUS I "
+                + "SHALL KILL YOU!";
             Typing();
-            Text = "HOLY MOTHER OF GOD! There's someone else in the building. You just "
-                + "saw them walking around the corner. You try to follow them, but when you turn "
-                + "around the corner, there's noone. "
-                + "Suddenly you hear a window breaking. The sound's coming from one of the "
-                + "classrooms. What do you do?";
+            Text = "With his long arms he throws you out the window which it had broken. You "
+                + "manage to land on you legs, completly breaking them. You look up, from where "
+                + "you where thrown from and see the Cedric Golem looking down at you. You "
+                + "try to stand up and escape, but you can't your legs aren't able to move at all. "
+                + "You look back up at the window and see the Cedric Golem jumping out of the "
+                + "window. Directly jumping onto you, with his heavy iron body.";
             Enter = true;
             Typing();
 
-            Enter = false;
-            Text = "1. RUN!";
+            Text = "You are dead, maybe your next run will end in a better way.";
             Typing();
-            Text = "2. Check out what happened.";
-            Typing();
-            Text = "3. Save and Exit";
-            Typing();
-            Text = "[Choose your path!]";
-            Typing();
-
-
-            while (true)
-            {
-                try
-                {
-                    string Choice = Console.ReadLine();
-
-                    if (Choice == "1")
-                    {
-                        Path_2_1.Run();
-                        break;
-                    }
-                    else if (Choice == "2")
-                    {
-                        Path_2_2.Check();
-                        break;
-                    }
-                    else if (Choice == "3")
-                    {
-                        Program.SpeichernUndBeenden(202);
-                        break;
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
-                catch
-                {
-                    Console.WriteLine("Please enter a valid answer!");
-                }
-            }
+            Environment.Exit(0);
         }
     }
 }
