@@ -39,6 +39,7 @@ namespace Choose_Your_Own_Adventure.Path_2
             Typing();
 
 
+<<<<<<< HEAD
             while (true)
             {
                 try
@@ -75,6 +76,8 @@ namespace Choose_Your_Own_Adventure.Path_2
                     Console.WriteLine("Please enter a valid answer!");
                 }
             }
+=======
+>>>>>>> dd6caa1a042770ab78fbb11e48a89773c0272b19
         }
     }
 }
