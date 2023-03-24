@@ -39,42 +39,6 @@ namespace Choose_Your_Own_Adventure.Path_2
             Typing();
 
 
-            while (true)
-            {
-                try
-                {
-                    string Choice = Console.ReadLine();
-
-                    if (Choice == "1")
-                    {
-                        Path_2_1_1
-                        break;
-                    }
-                    else if (Choice == "2")
-                    {
-                        Path_2_1_2
-                        break;
-                    }
-                    else if (Choice == "3")
-                    {
-                        Path_2_1_3
-                        break;
-                    }
-                    else if (Choice == "4")
-                    {
-                        Program.SpeichernUndBeenden(201);
-                        break;
-                    }
-                    else
-                    {
-                        throw new Exception();
-                    }
-                }
-                catch
-                {
-                    Console.WriteLine("Please enter a valid answer!");
-                }
-            }
         }
     }
 }

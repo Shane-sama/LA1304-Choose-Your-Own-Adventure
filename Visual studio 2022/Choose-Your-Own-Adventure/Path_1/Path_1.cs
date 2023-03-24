@@ -50,7 +50,7 @@ namespace Choose_Your_Own_Adventure.Path_1
                     }
                     else if (Choice == "2")
                     {
-                        Path_1_2.Biology();
+                        Path_1_2.NaturalSciences();
                         break;
                     }
                     else if (Choice == "3")

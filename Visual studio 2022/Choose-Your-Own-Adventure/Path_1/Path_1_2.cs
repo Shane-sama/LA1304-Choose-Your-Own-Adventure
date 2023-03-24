@@ -11,17 +11,10 @@ namespace Choose_Your_Own_Adventure.Path_1
 {
     public class Path_1_2
     {
-        public static void Biology()
+        public static void NaturalSciences()
         {
             Console.Clear();
-            Game.Text = "You try to search for another way out. You are walking around and find out that "
-                      + "you're in the Mensa building. That's really good news hence there are hallways to "
-                      + "two different buildings and there could be food somewhere here. One guides to the "
-                      + "Sporthalls and one to the biology building. "
-                      + "While you're thinking about which building you want to go and if you want to search for "
-                      + "food first, you suddenly get a weird "
-                      + "feeling as if someone is watching you. You should go somewhere else than this "
-                      + "place quickly. What do you want to do? ";
+            Game.Text = "";
 
             Enter = true;
             Typing();
@@ -51,7 +44,7 @@ namespace Choose_Your_Own_Adventure.Path_1
                     }
                     else if (Choice == "2")
                     {
-                        Path_1_2.Biology();
+                        Path_1_2.NaturalSciences();
                         break;
                     }
                     else if (Choice == "3")
