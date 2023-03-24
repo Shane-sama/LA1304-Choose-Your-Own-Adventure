@@ -29,7 +29,7 @@ namespace Choose_Your_Own_Adventure.Path_2
             Enter = false;
             Text = "1. Go up the stairs again.";
             Typing();
-            Text = "2. Go to the natural sciences Building";
+            Text = "2. Go to the natural sciences building";
             Typing();
             Text = "3. Go to the Sporthalls";
             Typing();
@@ -47,17 +47,17 @@ namespace Choose_Your_Own_Adventure.Path_2
 
                     if (Choice == "1")
                     {
-                        Path_2_1_1
+                        Path_2_1_1.BackUp();
                         break;
                     }
                     else if (Choice == "2")
                     {
-                        Path_2_1_2
+                        Path_1.Path_1_2.Naturalsciences();
                         break;
                     }
                     else if (Choice == "3")
                     {
-                        Path_2_1_3
+                        Path_1.Path_1_1.Sporthalls();
                         break;
                     }
                     else if (Choice == "4")
